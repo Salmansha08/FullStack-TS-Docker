@@ -20,28 +20,30 @@
 
 ## Build & Run Docker Compose
 
-1. **Build Docker Compose:**
+### 1. **Build Docker Compose:**
 
-   ```bash
-   docker compose build
-   ```
+  Build Frontend dan Backend Image
 
-2. Run Docker Compose
+  ```bash
+  docker compose build
+  ```
 
-    Run Image db
+### 2. Run Docker Compose
 
-    ```bash
-    docker compose up -d db
-    ```
+  Run Service db
 
-    Run Image Backend
+  ```bash
+  docker compose up -d db
+  ```
 
-    ``` bash
-    docker compose up -d backend
-    ```
+  Run Service Backend
 
-    Run Image Frontend
+  ``` bash
+  docker compose up -d api
+  ```
 
-    ``` bash
-    docker compose up -d frontend
-    ```
+  Run Service Frontend
+
+  ``` bash
+  docker compose up -d web
+  ```

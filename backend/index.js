@@ -1,5 +1,10 @@
 const express = require('express');
 const { PrismaClient } = require('@prisma/client');
+const dotenv = require('dotenv');
+
+dotenv.config();
+const HOST = process.env.BE_HOST
+const PORT = process.env.BE_PORT
 
 const prisma = new PrismaClient();
 const app = express();
@@ -96,7 +101,6 @@ app.delete('/users/:id', async (req, res) => {
 });
 
 // Start server
-const PORT = process.env.PORT
 app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`Server running on http://${HOST}:${PORT}`);
 })

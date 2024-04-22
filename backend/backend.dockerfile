@@ -10,8 +10,6 @@ COPY prisma ./prisma
 
 RUN npx prisma generate
 
-RUN npx prisma migrate dev --name init
-
 COPY . .
 
 EXPOSE 4000

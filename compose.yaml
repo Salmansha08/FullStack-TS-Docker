@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.9'
 
 services:
   web:
@@ -21,15 +21,27 @@ services:
       dockerfile: backend.dockerfile
     ports:
       - 4000:4000
-    env_file: .env
+    env_file: /backend/.env
     restart: always
+    depends_on:
+      - db
   db:
     container_name: db
     image: postgres:16
-    restart: always
+    ports:
+      - 6543:5432
     env_file: .env
+    restart: always
     volumes:
       - pgdata:/var/lib/postgresql/data
+
+  adminer:
+    container_name: adminer
+    image: adminer:4.8.1
+    ports:
+      - 8181:8080
+    env_file: .env
+    restart: always
 
 volumes:
   pgdata: {}
